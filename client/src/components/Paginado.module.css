@@ -1,0 +1,47 @@
+
+
+.pagination  {
+    list-style:none;
+    display: flex;
+    flex-direction:row;
+    margin-top: 50px;
+    margin-left: 320px;
+    width: 500px;
+    height: 70px;
+    justify-content: space-between;
+    
+}
+
+.listContainer {
+    display: inline-block;
+    flex-direction: row;
+  }
+
+.pagButton{
+    color: rgb(10, 10, 10);
+    font-size: 15px;
+    font-weight: bold;
+    
+    background-color:	#fffcaf;;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-width: 1px;
+    border-color: white;
+    border-radius: 3px;
+        
+    cursor: pointer;
+}
+
+.pagButton:hover{
+    
+    background-color: #fff84e;
+    
+}
+
+
+
+/* .numberStyles a:hover:not(.active) {
+    background-color: #ddd;} */
+
+
