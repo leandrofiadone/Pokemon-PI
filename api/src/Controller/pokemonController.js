@@ -38,7 +38,7 @@ const objPokeApi = (poke) => {
         height: poke.height,
         weight: poke.weight,
         sprite: poke.sprites.other.dream_world.front_default,
-        tipo: poke.types.length < 2 ? [ poke.types[0].type.name] : [poke.types[0].type.name," and ", poke.types[1].type.name],
+        types: poke.types.length < 2 ? [ poke.types[0].type.name] : [poke.types[0].type.name," ", poke.types[1].type.name],
     };
     return objPokeapi
 };
@@ -62,11 +62,10 @@ const getPokedb = async () => {
         height: pokemonDb.dataValues.altura,
         weight: pokemonDb.dataValues.peso,
         sprite: pokemonDb.dataValues.imagen,
-        types: pokemonDb.dataValues.types?.map( e=> e.nombre ) 
+        types: pokemonDb.dataValues.types?.map( e=> e.nombre+" " ), 
+        createdInDb: pokemonDb.dataValues.createdInDb
     };
 })
-
-    console.log(objPokeapi)
 
     try {
         return objPokeapi
@@ -91,68 +90,9 @@ const getAllPoke = async () => {
     }
 };
 
-//5 POST POKEMON
-
-
-
-
-
-
-const postPokedb = async (pokeData) => {
-    try {
-
-        const { nombre, vida, fuerza, defensa, velocidad, altura, peso, imagen, createdInDb, type } = pokeData;
-        const myPoke = await Pokemon.create(
-            {
-                nombre, 
-                vida, 
-                fuerza, 
-                defensa, 
-                velocidad, 
-                altura, 
-                peso, 
-                imagen,
-                createdInDb,
-                
-                
-            }
-        );
-
-        const pokeTypedb = await Type.findAll({
-            
-            where: { nombre: type }         //donde el name coincida con los types que me pasan
-        });
-       
-        let createdMyPoke = await myPoke.addType(pokeTypedb);
-        console.log("Acá", createdMyPoke)
-        return createdMyPoke;
-
-    //     const pokeTypedb = await Type.findAll({
-            
-    //         where: { nombre: type }         //donde el name coincida con los types que me pasan
-    //     });
-
-    //     const pokemonMapeo = pokeTypedb.map(e => e.dataValues.id)
-    //     myPoke.addType(pokemonMapeo)
-       
-    //    // let createdMyPoke = await myPoke.addType(pokeTypedb);
-    //     console.log("Acá", pokeTypedb)
-    //     return myPoke;
-
-        
-
-    } catch (error) {
-        console.log(error);
-        return error;
-    }
-};
-
-
 
 module.exports = {
     getPokeapi,
     getPokedb,
     getAllPoke,
-    postPokedb,
-    
 }

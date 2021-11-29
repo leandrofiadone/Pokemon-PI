@@ -1,6 +1,8 @@
 const initialState = {
     pokemones : [],
     allPokemons: [],
+    types: [],
+    detail: [],
 
 }
 
@@ -8,40 +10,88 @@ function rootReducer (state = initialState, action){
 
     switch(action.type){
         
-        case 'GET_POKEMONS':
+        case 'GET_POKEMONS': //TRAER TODOS LOS POKEMONES
                 return{
                     ...state,
                     pokemones: action.payload,
-                    allPokemons: action.payload
-                }   
+                    allPokemons: action.payload}
+                    
+        case "GET_TYPES": //TRAE TODOS LOS TIPOS
+                return {
+                    ...state,
+                    types: action.payload,
+                };
+            
+        case "POST_POKEMON": //CREA NUEVO POKEMON
+                return{
+                    ...state,
+                };  
 
-        case 'ORDER_BY_NAME':
+        case 'ORDER_BY_NAME': //ORDEN ALFABETICO
             let sortedArr = action.payload === 'asc' ?
-                state.pokemones.sort(function (a,b){
-                    if (a.name > b.name){
-                        return 1;}
+            state.pokemones.sort(function (a,b){
+            if (a.name > b.name){
+                return 1;}
+            if (b.name > a.name){
+                return -1;}
+                return 0;
+            }) : 
+            state.pokemones.sort(function (a,b){
+            if (a.name > b.name){
+                return -1;}
+            if (b.name > a.name){
+                return 1;}
+                return 0; 
+            })
+                return{
+                    ...state, 
+                    pokemones: sortedArr}
+            
+        case 'FILTER_CREATED': //FILTRO POR CREADOS EN API O BASE DE DATOS
+        
+                const createdFilter = 
+                action.payload === 'created' 
+                ? state.allPokemons.filter( el => el.createdInDb) 
+                : state.allPokemons.filter( el => !el.createdInDb) 
+                return {
+                    ...state,
+                    pokemones: action.payload === 'all' ? 
+                    state.allPokemons : createdFilter}   
 
-                    if (b.name > a.name){
-                        return -1;}
+        case 'ORDER_BY_ATTACK': //ORDENA POR FUERZA DE ATAQUE
+            let sortedAttack = action.payload === 'strong' ?
+            state.pokemones.sort(function (a, b) {
+            if(a.attack > b.attack) {
+                return -1;}
+            if(b.attack > a.attack) {
+                return 1;}
+            return 0;
+            }) :
+            state.pokemones.sort(function (a, b) {
+            if(a.attack > b.attack) {
+                return 1;}
+            if(b.attack > a.attack) {
+                return -1;}
+            return 0;
+            })
+            return {
+                ...state,
+                pokemons: sortedAttack
+            }
 
-                        return 0;
-                }) : 
-                
-                state.pokemones.sort(function (a,b){
-                    if (a.name > b.name){
-                        return -1;}
+        case 'GET_NAME_POKEMONS':
+            return{
+                ...state,
+                pokemones: action.payload
+            }
 
-                    if (b.name > a.name){
-                        return 1;}
+        case 'GET_DETAILS':
+            return {
+            ...state,
+            detail: action.payload
+            }
+        
 
-                        return 0; 
-                })
-                
-                        return{
-                            ...state, 
-                            pokemones: sortedArr
-                        }
-    
 
     default: return state;   
     

@@ -1,5 +1,6 @@
 const { Router } = require('express')
 const { getAllPoke,  postPokedb} = require ('../Controller/pokemonController');
+const {Pokemon, Type} = require('../db')
 
 
 const router = Router()
@@ -38,23 +39,59 @@ router.get('/:id', async (req, res) => {
     }
 })
 
+router.get('/pokemon/:name', async (req, res) => {
+    const {name} = req.params;
+    const allPokemons = await getAllPoke();
+    try {
+        if(name) {
+            const pokemonName = await allPokemons.filter(e => e.name == name);
+            pokemonName.length ?
+            res.status(200).json(pokemonName) :
+            res.status(404).send('Pokemon no encontrado')
+        }
+    } catch (error) {
+        console.log(error);
+    }
+})
+
 //types: poke.types?.map( e=> e.type.nombre ) 
 //POST METE RUTEO PARA NUEVOS POKMONES
 
 router.post('/', async (req, res) => {
-    try {
-        const pokeData = req.body
-        // console.log('holaaaaa', pokeData)
-        await postPokedb(pokeData)
-        return res.status(200).send('Pokemon creado con exito')
+    const {nombre,
+        vida,
+        fuerza,
+        defensa,
+        velocidad,
+        altura,
+        peso,
+        imagen,
+        createdInDb,
+        type
+    } = req.body
 
-    } catch (error) {
-        res.status(400).send('Fallo al crear el pokemon')
-    }
-});
+    let newPokemon = await Pokemon.create({
+        nombre,
+        vida,
+        fuerza,
+        defensa,
+        velocidad,
+        altura,
+        peso,
+        imagen,
+        createdInDb
+    })
 
+    let tipoDb = await Type.findAll({
+        where: {
+            nombre : type
+        }
+    })
 
-  
+    newPokemon.addType(tipoDb)
+    res.send('El pokemon ha sido creado con éxito')
+})
+
 
 
 module.exports = router
