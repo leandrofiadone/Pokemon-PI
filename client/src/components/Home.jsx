@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import {useDispatch, useSelector} from 'react-redux';
-import { getPokemons, orderByName, filterCreated, orderByAttack, getTypes, filterByTypes } from '../actions';
+import { getPokemons, orderByName, filterCreated, orderByAttack, getTypes, filterType } from '../actions';
 import {Link} from 'react-router-dom';
 import Card from "./Card";
 import Paginado from "./Paginado";
@@ -9,6 +9,7 @@ import SearchBar from "./SearchBar";
 export default function Home(){
     const dispatch = useDispatch()
     const tuttiPokemons = useSelector((state)=> state.pokemones)
+    const types = useSelector((state)=> state.types)
     
     //declara constante y trae todo lo que esta en el estado de pokemones, el pokemones del final viene del reducer
     
@@ -54,6 +55,13 @@ export default function Home(){
         setOrden(`Ordenado ${e.target.value}`)
     }
 
+    function handleFilterType(e) {
+        e.preventDefault();
+        dispatch(filterType(e.target.value));
+        setCurrentPage(1);
+        setOrden(` ${e.target.value}`);
+      }
+
   
 
     return (
@@ -74,9 +82,9 @@ export default function Home(){
                     <option value = 'weak'>Weaker attack</option>
                 </select>
 
-                <select >
-                    <option value="default" disabled>Filter by type</option>
-                  
+                <select onChange={(e) => {handleFilterType(e);}}>
+                {types?.map((e) => (
+                <option value={e.nombre}>{e.nombre}</option>))}
                 </select>
 
 

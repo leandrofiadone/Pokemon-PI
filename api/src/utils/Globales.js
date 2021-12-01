@@ -1,4 +1,4 @@
-const API_POKEMON = "https://pokeapi.co/api/v2/pokemon?limit=48"   //url con los primeros 40 pokemons
+const API_POKEMON = "https://pokeapi.co/api/v2/pokemon?limit=60"   //url con los primeros 40 pokemons
 const API_POKEMON_TYPE = "https://pokeapi.co/api/v2/type";
 const API_POKEMON_NAME_OR_ID = "https://pokeapi.co/api/v2/pokemon/";
 

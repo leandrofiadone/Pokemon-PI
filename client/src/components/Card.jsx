@@ -7,9 +7,18 @@ export default function Card({ name, sprite, id, types }) {
       
       <img src={sprite} alt="Img not found"  width="500px" heigth="550px"/>
       <h2>{name}</h2>
-      <h3>{types}</h3>
+      <div>
+      {types?.map((e)=>{
+        return(
+          <div>
+            <span>{e}</span>
+
+          </div>
+        )
+      })}
+      </div>
+      </div>
+    </div>
   
-    </div>
-    </div>
   );
 }

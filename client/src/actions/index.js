@@ -85,5 +85,17 @@ export function getDetail(id) {
     }
 }
 
+// export const filterType = (type) => {
+//     return async (dispatch) =>
+//         dispatch({ 
+//             type: 'FILTER_BY_TYPE', 
+//             payload: type })
+// };
 
+export function filterType(payload) {
+    return {
+        type: 'FILTER_BY_TYPE',
+        payload
+    }
+}
   

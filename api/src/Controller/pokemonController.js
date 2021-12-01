@@ -38,7 +38,7 @@ const objPokeApi = (poke) => {
         height: poke.height,
         weight: poke.weight,
         sprite: poke.sprites.other.dream_world.front_default,
-        types: poke.types.length < 2 ? [ poke.types[0].type.name] : [poke.types[0].type.name," ", poke.types[1].type.name],
+        types: poke.types.length < 2 ? [ poke.types[0].type.name] : [poke.types[0].type.name, poke.types[1].type.name],
     };
     return objPokeapi
 };
@@ -62,7 +62,7 @@ const getPokedb = async () => {
         height: pokemonDb.dataValues.altura,
         weight: pokemonDb.dataValues.peso,
         sprite: pokemonDb.dataValues.imagen,
-        types: pokemonDb.dataValues.types?.map( e=> e.nombre+" " ), 
+        types: pokemonDb.dataValues.types?.map( e=> e.nombre ), 
         createdInDb: pokemonDb.dataValues.createdInDb
     };
 })
