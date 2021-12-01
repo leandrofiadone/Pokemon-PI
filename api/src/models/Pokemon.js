@@ -30,7 +30,7 @@ module.exports = (sequelize) => {
     fuerza: {
       type: DataTypes.INTEGER,
       allowNull: false
-    },
+    }, 
 
     defensa: {
       type: DataTypes.INTEGER,

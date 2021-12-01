@@ -15,13 +15,15 @@ function rootReducer (state = initialState, action){
                     ...state,
                     pokemones: action.payload,
                     allPokemons: action.payload}
+        
                     
         case "GET_TYPES": //TRAE TODOS LOS TIPOS
                 return {
                     ...state,
                     types: action.payload,
                 };
-            
+
+        // COMO CONECTA ESTE REDUCER CON LA ACTION SI NO TIENE NADA QUE DIGA POST_POKEMON LA ACTION?
         case "POST_POKEMON": //CREA NUEVO POKEMON
                 return{
                     ...state,
