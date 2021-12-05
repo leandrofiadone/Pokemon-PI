@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getDetail } from '../actions';
 import { useEffect } from 'react';
+import styles from './Detail.module.css'
 
 export default function Detail() {
 
@@ -23,7 +24,7 @@ export default function Detail() {
             <h1>Probando</h1>
             {
                 myPokemon.length > 0 ?
-                <div>
+                <div className={styles.form}>
                     <h1>{myPokemon[0].name}</h1>
                     <img src= {myPokemon[0].sprite} alt='' width= '200px' height= '250px'/>
                     <h3>Types: {myPokemon[0].types.map(e => e + " ")}</h3>                    
@@ -37,7 +38,7 @@ export default function Detail() {
                 </div> : <p>Loading...</p>    
             }
             <p>
-                <Link to= '/home' ><button>Return</button></Link>
+                <Link to= '/home' ><button className={styles.buttondetail}>Return</button></Link>
             </p>
         </div>
     )

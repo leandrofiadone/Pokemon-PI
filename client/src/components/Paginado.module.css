@@ -1,6 +1,8 @@
 
 
+
 .pagination  {
+
     list-style:none;
     display: flex;
     flex-direction:row;
@@ -9,35 +11,41 @@
     width: 500px;
     height: 70px;
     justify-content: space-between;
-    
+    text-align: center;
 }
 
-.listContainer {
-    display: inline-block;
-    flex-direction: row;
-  }
+.number{
+    text-decoration: none;
+    list-style: none;
+}
 
-.pagButton{
-    color: rgb(10, 10, 10);
+
+
+  .pagButton {
+    padding: 1.5em 2em;
     font-size: 15px;
-    font-weight: bold;
-    
-    background-color:	#fffcaf;;
-    padding: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-    border-width: 1px;
-    border-color: white;
-    border-radius: 3px;
-        
+    text-transform: uppercase;
+    font-weight: 900;
+    color: #0075BE;
+    background-color: #FFCC00;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
     cursor: pointer;
-}
-
-.pagButton:hover{
-    
-    background-color: #fff84e;
-    
-}
+    outline: none;
+   }
+   
+   pagButton:hover {
+    background-color: #0075BE;
+    box-shadow: 0px 15px 20px #0A285F;
+    color: rgb(255, 255, 255);
+    transform: translateY(-7px);
+   }
+   
+   pagButton:active {
+    transform: translateY(-1px);
+   }
 
 
 

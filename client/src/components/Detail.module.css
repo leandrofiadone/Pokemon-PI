@@ -1,0 +1,38 @@
+
+  .buttondetail {
+    padding: 1.3em 4em;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 900;
+    color: #0075BE;
+    background-color: #FFCC00;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+   }
+   
+   buttodetail:hover {
+    background-color: #0075BE;
+    box-shadow: 0px 15px 20px #0A285F;
+    color: rgb(255, 255, 255);
+    transform: translateY(-7px);
+   }
+   
+   buttondetail:active {
+    transform: translateY(-1px);
+   }
+
+   @font-face {
+    font-family: 'Sono-Regular';
+    src: local('Sono-Regular'), url(../fonts/Sono-Regular.ttf);
+  }
+
+  .form {
+    font-family: Sono-Regular;
+    font-size: 20px;
+    
+}

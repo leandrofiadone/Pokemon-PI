@@ -4,6 +4,7 @@ import LandingPage from './components/LandingPage'
 import Home from './components/Home'
 import CreatePokemon from './components/CreatePokemon'
 import Detail from './components/Detail'
+import Pokemonlogo from './Pokemon logo.png'
 
 function App() {
   return (
@@ -20,7 +21,14 @@ function App() {
 
     </Routes>
 
-    <h1>Pokedex</h1>
+    <div className="PokemonLogo">
+
+    <img src={Pokemonlogo} alt="Pokemon Logo"  height="100"/>
+    
+   
+
+    </div>
+
     </div>
   </BrowserRouter>
   );

@@ -9,7 +9,9 @@ import {store} from './store'
 ReactDOM.render(
   <Provider store={store}>
   <React.StrictMode>
+    <div className='App_container'>
     <App />
+    </div>
   </React.StrictMode>,
   </Provider>,
   document.getElementById('root')

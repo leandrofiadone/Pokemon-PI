@@ -1,0 +1,88 @@
+.containerCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  padding: 10px 80px 20px;
+  grid-gap: 30px 30px;
+  justify-content: center;
+  @media (max-width: 900px) {
+    & {
+      padding-bottom: 10px;
+    }
+  }
+  }
+
+  .titulo {
+      font-family: PokemonHollow;
+      font-size: 40px;
+    
+  }
+
+  .cards {
+    margin: 0px 25px 25px 25px;
+    border-radius: 20px;
+    transition-duration: 0.4s;
+  }
+
+
+
+  @font-face {
+    font-family: 'PokemonHollow';
+    src: local('PokemonHollow'), url(../fonts/PokemonHollow.ttf);
+  }
+
+  .button {
+    padding: 1.3em 6em;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 900;
+    color: #0075BE;
+    background-color: #FFCC00;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+   }
+   
+   button:hover {
+    background-color: #0075BE;
+    box-shadow: 0px 15px 20px #0A285F;
+    color: rgb(255, 255, 255);
+    transform: translateY(-7px);
+   }
+   
+   button:active {
+    transform: translateY(-1px);
+   }
+  
+   .buttoncreate {
+    padding: 1.3em 4em;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 900;
+    color: #0075BE;
+    background-color: #FFCC00;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+   }
+   
+   buttoncreate:hover {
+    background-color: #0075BE;
+    box-shadow: 0px 15px 20px #0A285F;
+    color: rgb(255, 255, 255);
+    transform: translateY(-7px);
+   }
+   
+   buttoncreate:active {
+    transform: translateY(-1px);
+   }
+
+
+ 

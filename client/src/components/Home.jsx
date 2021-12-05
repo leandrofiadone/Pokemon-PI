@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom';
 import Card from "./Card";
 import Paginado from "./Paginado";
 import SearchBar from "./SearchBar";
+import styles from "./Home.module.css";
 
 export default function Home(){
     const dispatch = useDispatch()
@@ -66,10 +67,12 @@ export default function Home(){
 
     return (
         <div>
+            <button className={styles.buttoncreate}>
             <Link to= '/pokemon'>Crear Personaje</Link>
-            <h1>Aguante Pokemons</h1>
-            <button onClick={e => {handleClick(e)}}>
-                        Volver a cargar Pokemones
+            </button>
+            <h1 className={styles.titulo}>Search by attack, type or even more</h1>
+            <button className={styles.button} onClick={e => {handleClick(e)}}>
+                        Reload Pokemons
             </button>
             <div>
                 <select onChange={e=> handleSort(e)}>
@@ -94,7 +97,7 @@ export default function Home(){
                 <option value="created">Created</option>
                 </select>
             </div>
-            <div >        
+            <div>        
                 <Paginado
                 pokemonPerPage = {pokemonPerPage}
                 tuttiPokemons={tuttiPokemons.length}
@@ -104,32 +107,29 @@ export default function Home(){
             
             <SearchBar/>
 
-            <div>
+            <div className={styles.containerCards}>
 
              {currentPokemons.map((ob) => {
                  return(
                         
-                    <Link to ={`/pokemons/${ob.id}`}>
+                        <div className={styles.cards}>
+
+                    <Link to ={`/pokemons/${ob.id}`} >
                                 <Card 
                                 name={ob.name}
                                 sprite={ob.sprite}
                                 types={ob.types}
                                 key={ob.id}/>
                     </Link>
-                            
+                       
+                       </div>    
                         )
                 })}
                     
                 
             </div>
 
-            <div >        
-                <Paginado
-                pokemonPerPage = {pokemonPerPage}
-                tuttiPokemons={tuttiPokemons.length}
-                paginado = {paginado}
-                />
-            </div>
+         
 
         </div>
 
