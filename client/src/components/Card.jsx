@@ -85,9 +85,11 @@ export default function Card({ name, sprite, id, types }) {
 		height: 300px;
 		position: relative;
 		max-width: 400px;
+		box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
 		&:hover {
-			transform: translateY(-5px);
+			transform: translateY(-3px);
 			transition: 0.4s ease-in-out;
+			box-shadow: 2px 3px 25px #FFCC00;
 		}
 	`;
 

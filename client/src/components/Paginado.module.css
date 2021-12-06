@@ -6,11 +6,10 @@
     list-style:none;
     display: flex;
     flex-direction:row;
-    margin-top: 50px;
-    margin-left: 320px;
-    width: 500px;
-    height: 70px;
-    justify-content: space-between;
+   
+    padding: 0px 300px 20px;
+    
+    justify-content: space-around;
     text-align: center;
 }
 

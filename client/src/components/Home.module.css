@@ -84,5 +84,70 @@
     transform: translateY(-1px);
    }
 
+   .selectionfilterscontainer {
+      /* dimension */
+      width: 100%;
+      height: 60px;
+      /* flexbox */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      /* background */
+      background: var(--blue);
+      border-radius: 20px 20px 0px 0px;
+    }
+   
+    .selectbtns {
+      /* default */
+      border: none;
+      /* appearance: none; */
+      outline: 0;
+      box-shadow: none;
+      background-image: none;
+      /* dimension */
+      cursor: pointer;
+      /* text */
+      font-family: Sono-ExtraBold;
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--white);
+      text-align: center;
+      /* background */
+      /* background: none; */
+      background: var(--blue);
+      border-radius: 30px;
+    }
+    
+    .selectbtns:hover {
+      color: var(--yellow);
+      font-weight: 400;
+    }
+
+
+    @media screen and (max-width: 768px) {
+      .selectionfilterscontainer  {
+        flex-wrap: wrap;
+        align-content: center;
+        gap: 8px;
+      }
+      .selectbtns {
+        font-size: 12px;
+      }
+    }
+    
+    @media screen and (max-width: 480px) {
+      .selectionfilterscontainer  {
+        flex-wrap: wrap;
+        align-content: center;
+        gap: 0;
+      }
+    }
+
+    a:link {
+      text-decoration: none;
+    }
+    
+ 
 
  

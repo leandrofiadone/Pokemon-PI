@@ -21,7 +21,7 @@ export default function Detail() {
 
     return (
         <div>
-            <h1>Probando</h1>
+           
             {
                 myPokemon.length > 0 ?
                 <div className={styles.form}>

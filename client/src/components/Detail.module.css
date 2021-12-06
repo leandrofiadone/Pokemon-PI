@@ -13,6 +13,7 @@
     transition: all 0.3s ease 0s;
     cursor: pointer;
     outline: none;
+
    }
    
    buttodetail:hover {
@@ -34,5 +35,6 @@
   .form {
     font-family: Sono-Regular;
     font-size: 20px;
+    text-transform: capitalize;
     
 }

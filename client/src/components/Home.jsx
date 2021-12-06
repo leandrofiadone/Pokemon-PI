@@ -67,31 +67,38 @@ export default function Home(){
 
     return (
         <div>
-            <button className={styles.buttoncreate}>
-            <Link to= '/pokemon'>Crear Personaje</Link>
-            </button>
             <h1 className={styles.titulo}>Search by attack, type or even more</h1>
+            <button className={styles.buttoncreate}>
+            <Link to= '/pokemon'>Create Pokemon</Link>
+            </button>
             <button className={styles.button} onClick={e => {handleClick(e)}}>
                         Reload Pokemons
             </button>
-            <div>
-                <select onChange={e=> handleSort(e)}>
+            <div className={styles.selectionfilterscontainer}>
+                
+                <select className={styles.selectbtns} onChange={e=> handleSort(e)}>
+                    <option>ORDER BY NAME</option>
                     <option value = 'asc'>Ascending order</option>
                     <option value = 'desc'>Descending order</option>
                 </select>
+                
+                
 
-                <select onChange={e => {handleSortAttack(e)}}>
+                <select className={styles.selectbtns} onChange={e => {handleSortAttack(e)}}>
+                    <option>STRENGTH</option>
                     <option value = 'strong'>Stronger attack</option>
                     <option value = 'weak'>Weaker attack</option>
                 </select>
 
-                <select onChange={(e) => {handleFilterType(e);}}>
+                <select className={styles.selectbtns} onChange={(e) => {handleFilterType(e);}}>
+                    <option>BY TYPE</option>
                 {types?.map((e) => (
                 <option value={e.nombre}>{e.nombre}</option>))}
                 </select>
 
 
-                <select onChange={e=> handleFilterCreated(e)}>
+                <select className={styles.selectbtns} onChange={e=> handleFilterCreated(e)}>
+                <option>CREATOR</option>
                 <option value="all">Show all...</option>
                 <option value="api">Reals</option>
                 <option value="created">Created</option>
@@ -125,11 +132,10 @@ export default function Home(){
                        </div>    
                         )
                 })}
-                    
+      
                 
             </div>
-
-         
+      
 
         </div>
 
