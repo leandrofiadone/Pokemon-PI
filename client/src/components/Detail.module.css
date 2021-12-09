@@ -38,3 +38,9 @@
     text-transform: capitalize;
     
 }
+
+p {
+  font-family: Sono-Regular;
+    font-size: 40px;
+    text-transform: capitalize;
+}

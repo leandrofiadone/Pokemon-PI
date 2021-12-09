@@ -14,19 +14,19 @@
 
   .create_title {
     /* dimension */
-    width: 300px;
-    height: 10px;
-    padding: 0,5px;
+    
+    height: 0px;
+    
     /* text */
-    font-family: Kanit;
-    font-size: 40px;
-    font-weight: 400;
+    font-family: Sono-Regular;
+    font-size: 30px;
+    font-weight: 900px;
     text-align: center;
     color: #000000;
     
     /* background */
-    background: var(--blue);
-    border-radius: 20px 20px 0px 0px;
+   
+    
   }
 
   .form_container {
@@ -56,7 +56,7 @@
 
   .labelInput_cnt label {
     /* text */
-    font-family: Kanit;
+    font-family: Sono-Light;
     font-size: 20px;
     font-weight: 300;
     text-align: center;
@@ -93,7 +93,7 @@
     margin: 0 10px;
     padding: 0 6px 0 0;
     /* text */
-    font-family: Kanit;
+    font-family: Sono-Bold;
     font-size: 25px;
     font-weight: 200;
     color: rgb(0, 0, 0);
@@ -109,13 +109,34 @@
   }
 
   .selecciones {
-    
-    
     /* text */
-    font-family: Kanit;
-    font-size: 25px;
-    
-    
+    font-family: Sono-Bold;
+    font-size: 25px; 
+  }
+
+  
+  @font-face {
+    font-family: 'Sono-Bold';
+    src: local('Sono-Bold'), url(../fonts/Sono-Bold.ttf);
+   
+  }
+
+  @font-face {
+    font-family: 'Sono-Light';
+    src: local('Sono-Light'), url(../fonts/Sono-Light.ttf);
+   
+  }
+
+  @font-face {
+    font-family: 'PokemonSolid';
+    src: local('PokemonSolid'), url(../fonts/PokemonSolid.ttf);
+   
+  }
+
+  @font-face {
+    font-family: 'Sono-Regular';
+    src: local('Sono-Regular'), url(../fonts/Sono-Regular.ttf);
+   
   }
 
   

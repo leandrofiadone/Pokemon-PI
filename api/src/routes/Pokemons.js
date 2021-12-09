@@ -1,64 +1,64 @@
-const { Router } = require('express')
-const { getAllPoke,  postPokedb} = require ('../Controller/pokemonController');
-const {Pokemon, Type} = require('../db')
-
+const {Router} = require('express')
+const {getAllPoke} = require('../Controller/pokemonController');
+const { Pokemon, Type} = require('../db')
 
 const router = Router()
 
 // 1 TRAE TODOS LOS POKEMONES DE BASE DE DATOS Y DE API CON EL LLAMADO HTTP
+//UTILIZANDO LA FUNCION getAllPoke traída de pokemonController
+
 router.get('/', async (req, res) => {
     try {
-        const {name} = req.query;    
-        if(!name) { 
-            return res.status(200).send(await getAllPoke());
-        }else{
-            const pokeFoundName = await getPokeByName(name);
-         
-            if(pokeFoundName) {
-                return res.status(200).json(pokeFoundName)
-            }
-        }
+
+        return res.status(200).send(await getAllPoke());
+
     } catch (error) {
         console.log('entro error');
-        return res.status(404).send('Pokemon not found');
+        return res.status(404).send('Pokemons not found');
     }
 });
 
+//BUSCA LOS POKEMONS POR SUS ID PRIMERO LLAMANDO A LA FUNCION getAllPoke
+//LUEGO FILTRA EL OBJETO CREADO A PARTIR DE LA FUNCION POR SUS ID
+
 router.get('/:id', async (req, res) => {
-    const {id} = req.params;
+    const { id } = req.params;
     const allPokemons = await getAllPoke();
     try {
-        if(id) {
+        if (id) {
             const pokemonId = await allPokemons.filter(e => e.id == id);
             pokemonId.length ?
-            res.status(200).json(pokemonId) :
-            res.status(404).send('Pokemon not found')
+                res.status(200).json(pokemonId) :
+                res.status(404).send('Pokemon not found')
         }
     } catch (error) {
         console.log(error);
     }
 })
+
+//BUSCA LOS POKEMONS POR SUS ID PRIMERO LLAMANDO A LA FUNCION getAllPoke
+//LUEGO FILTRA EL OBJETO CREADO A PARTIR DE LA FUNCION POR SUS NAME
 
 router.get('/pokemon/:name', async (req, res) => {
-    const {name} = req.params;
+    const { name } = req.params;
     const allPokemons = await getAllPoke();
     try {
-        if(name) {
+        if (name) {
             const pokemonName = await allPokemons.filter(e => e.name == name);
             pokemonName.length ?
-            res.status(200).json(pokemonName) :
-            res.status(404).send('Pokemon no encontrado')
+                res.status(200).json(pokemonName) :
+                res.status(404).send('Pokemon no encontrado')
         }
     } catch (error) {
         console.log(error);
     }
 })
 
-//types: poke.types?.map( e=> e.type.nombre ) 
-//POST METE RUTEO PARA NUEVOS POKMONES
+//POSTEO DE NUEVOS POKEMONES EN LA BASE DE DATOS
 
 router.post('/', async (req, res) => {
-    const {nombre,
+    const {
+        nombre,
         vida,
         fuerza,
         defensa,
@@ -68,7 +68,7 @@ router.post('/', async (req, res) => {
         imagen,
         createdInDb,
         type
-    } = req.body
+    } = req.body //indica los parametros pertenecientes al body en el JSON
 
     let newPokemon = await Pokemon.create({
         nombre,
@@ -80,17 +80,17 @@ router.post('/', async (req, res) => {
         peso,
         imagen,
         createdInDb
-    })
+    }) //creador del nuevo Pokemon en la base de datos
 
     let tipoDb = await Type.findAll({
         where: {
-            nombre : type
+            nombre: type
         }
-    })
+    }) //busca todos los tipos de pokemones en la base de datos
 
     newPokemon.addType(tipoDb)
     res.send('El pokemon ha sido creado con éxito')
-})
+})// agrega el tipo al nuevo pokemon
 
 
 

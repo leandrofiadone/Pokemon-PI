@@ -19,20 +19,11 @@
   .form {
     font-family: Sono-ExtraBold;
     font-size: 40px;
-    
+    color: #000000;
     
 }
-/*   
-  .title {
-    color: #201a1a;
-    font-size: 30px;
-    font-family: Microsoft JhengHei UI, sans-serif;
-    font-weight: bolder;
-  }
-  
-  .temp,
-  .wei {
-    color: #201a1a;
-    font-family: Microsoft JhengHei UI, sans-serif;
-    font-weight: 400;
-  } */
+
+
+a:link {
+  text-decoration: none;
+}

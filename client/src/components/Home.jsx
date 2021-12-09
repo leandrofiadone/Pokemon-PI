@@ -67,77 +67,82 @@ export default function Home(){
 
     return (
         <div>
+
             <h1 className={styles.titulo}>Search by attack, type or even more</h1>
-            <button className={styles.buttoncreate}>
-            <Link to= '/pokemon'>Create Pokemon</Link>
-            </button>
-            <button className={styles.button} onClick={e => {handleClick(e)}}>
-                        Reload Pokemons
-            </button>
+
+            <div className={styles.buttonContainer}>
+            {/* BOTON CREAR POKEMON */}
+            <button className={styles.buttoncreate}> <Link to= '/pokemon'>Create Pokemon</Link> </button>
+            {/* BOTON RELOAD POKEMON */}
+            <button className={styles.buttonReload} onClick={e => {handleClick(e)}}> Reload Pokemons</button>
+            </div>
+
+            {/* INICIO FILTRADOS */}
             <div className={styles.selectionfilterscontainer}>
                 
-                <select className={styles.selectbtns} onChange={e=> handleSort(e)}>
-                    <option>ORDER BY NAME</option>
-                    <option value = 'asc'>Ascending order</option>
-                    <option value = 'desc'>Descending order</option>
-                </select>
+                    <select className={styles.selectbtns} onChange={e=> handleSort(e)}>
+                        <option>ORDER BY NAME</option>
+                        <option value = 'asc'>Ascending order</option>
+                        <option value = 'desc'>Descending order</option>
+                    </select>
+                    
+                    <select className={styles.selectbtns} onChange={e => {handleSortAttack(e)}}>
+                        <option>STRENGTH</option>
+                        <option value = 'strong'>Stronger attack</option>
+                        <option value = 'weak'>Weaker attack</option>
+                    </select>
+
+                    <select className={styles.selectbtns} onChange={(e) => {handleFilterType(e);}}>
+                        <option>BY TYPE</option>
+                        {types?.map((e) => (
+                        <option value={e.nombre}>{e.nombre}</option>))}
+                    </select>
+
+                    <select className={styles.selectbtns} onChange={e=> handleFilterCreated(e)}>
+                        <option>CREATOR</option>
+                        <option value="all">Show all...</option>
+                        <option value="api">Reals</option>
+                        <option value="created">Created</option>
+                    </select>
                 
-                
-
-                <select className={styles.selectbtns} onChange={e => {handleSortAttack(e)}}>
-                    <option>STRENGTH</option>
-                    <option value = 'strong'>Stronger attack</option>
-                    <option value = 'weak'>Weaker attack</option>
-                </select>
-
-                <select className={styles.selectbtns} onChange={(e) => {handleFilterType(e);}}>
-                    <option>BY TYPE</option>
-                {types?.map((e) => (
-                <option value={e.nombre}>{e.nombre}</option>))}
-                </select>
-
-
-                <select className={styles.selectbtns} onChange={e=> handleFilterCreated(e)}>
-                <option>CREATOR</option>
-                <option value="all">Show all...</option>
-                <option value="api">Reals</option>
-                <option value="created">Created</option>
-                </select>
             </div>
+            {/* CIERRE FILTRADOS */}
+
             <div>        
                 <Paginado
-                pokemonPerPage = {pokemonPerPage}
-                tuttiPokemons={tuttiPokemons.length}
-                paginado = {paginado}
+                    pokemonPerPage = {pokemonPerPage}
+                    tuttiPokemons={tuttiPokemons.length}
+                    paginado = {paginado}
                 />
             </div>    
             
-            <SearchBar/>
+                <SearchBar/>
 
+
+            {/* INICIO DE CARD */}
             <div className={styles.containerCards}>
-
-             {currentPokemons.map((ob) => {
+                {currentPokemons.map((ob) => {
                  return(
-                        
                         <div className={styles.cards}>
 
-                    <Link to ={`/pokemons/${ob.id}`} >
-                                <Card 
-                                name={ob.name}
-                                sprite={ob.sprite}
-                                types={ob.types}
-                                key={ob.id}/>
-                    </Link>
-                       
-                       </div>    
-                        )
-                })}
-      
-                
-            </div>
-      
+                            <Link to ={`/pokemons/${ob.id}`} >
+                                    <Card 
+                                        name={ob.name}
+                                        sprite={ob.sprite}
+                                        types={ob.types}
+                                        key={ob.id}/>
+                            </Link>
 
-        </div>
+                        </div>    
+                        )
+                        
+                })
+                
+                }
+            </div>
+            {/* CIERRE DE CARD */}
+
+        </div>//CIERRE DE RETURN
 
         
     )

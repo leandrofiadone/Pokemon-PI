@@ -1,15 +1,17 @@
 const axios = require('axios');
-const { Type } = require('../db');
-const { API_POKEMON_TYPE } = require('../utils/Globales');
+const {Type} = require('../db');
+const {API_POKEMON_TYPE} = require('../utils/Globales');
 
-//Add pokemon types to database automatically when server is up
+// 1 - ADHIERE LOS TYPES A LA BASE DE DATOS CUANDO EL SERVIDOR ESTA ANDANDO
 const addTypeDb = async () => {
     try {
-        const reqType = await axios.get(API_POKEMON_TYPE)
+        const reqType = await axios.get(API_POKEMON_TYPE) //llamado a la api
         const resType = reqType.data.results
-        
+
         resType.map(e => {
-            Type.create({ nombre: e.name })
+            Type.create({
+                nombre: e.name
+            })
             /* console.log({name: e.name}) */
         })
     } catch (err) {
@@ -18,12 +20,13 @@ const addTypeDb = async () => {
 }
 addTypeDb()
 
-//I bring the types from my database and send them to the router
+
+// 2 - LOS TYPES SON TRAIDOS DE LA BASE DE DATOS Y ENVIADOS AL ROUTER
 const getTypeApi = async () => {
     const result = await Type.findAll();
     return result;
 }
 
-
-
-module.exports = { getTypeApi}; 
+module.exports = {
+    getTypeApi
+};

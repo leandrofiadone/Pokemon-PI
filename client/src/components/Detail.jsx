@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getDetail } from '../actions';
 import { useEffect } from 'react';
+import pokebolaloading from '../img/pokebolaloading.gif'
 import styles from './Detail.module.css'
 
 export default function Detail() {
@@ -14,8 +15,10 @@ export default function Detail() {
     
     
     useEffect(() => {
+        
         dispatch(getDetail(id));
     }, [dispatch, id])
+
 
     const myPokemon = useSelector((state) => state.detail)
 
@@ -35,10 +38,16 @@ export default function Detail() {
                     <h4>Height: {myPokemon[0].height}</h4>
                     <h4>Weight: {myPokemon[0].weight}</h4>
 
-                </div> : <p>Loading...</p>    
-            }
+                </div> 
+                : 
+                <div>
+                
+                <p> Loading your pokemon... </p>  
+                <img src={pokebolaloading} alt="pokebolaloading" height={130} width={130} />
+                </div>  
+            }   
             <p>
-                <Link to= '/home' ><button className={styles.buttondetail}>Return</button></Link>
+                <Link to='/home' ><button className={styles.buttondetail}>Return</button></Link>
             </p>
         </div>
     )

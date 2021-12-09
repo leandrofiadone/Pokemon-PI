@@ -1,5 +1,5 @@
 import './App.css';
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
 import LandingPage from './components/LandingPage'
 import Home from './components/Home'
 import CreatePokemon from './components/CreatePokemon'
@@ -23,8 +23,9 @@ function App() {
 
     <div className="PokemonLogo">
 
+    <Link to ={`/home`} refresh="true">
     <img src={Pokemonlogo} alt="Pokemon Logo"  height="100"/>
-    
+    </Link>
    
 
     </div>

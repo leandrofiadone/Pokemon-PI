@@ -13,7 +13,7 @@
 
   .titulo {
       font-family: PokemonHollow;
-      font-size: 40px;
+      font-size: 35px;
     
   }
 
@@ -30,7 +30,8 @@
     src: local('PokemonHollow'), url(../fonts/PokemonHollow.ttf);
   }
 
-  .button {
+
+  .buttonReload {
     padding: 1.3em 6em;
     font-size: 10px;
     text-transform: uppercase;
@@ -46,14 +47,14 @@
     outline: none;
    }
    
-   button:hover {
+   buttonReload:hover {
     background-color: #0075BE;
     box-shadow: 0px 15px 20px #0A285F;
     color: rgb(255, 255, 255);
     transform: translateY(-7px);
    }
    
-   button:active {
+   buttonReload:active {
     transform: translateY(-1px);
    }
   

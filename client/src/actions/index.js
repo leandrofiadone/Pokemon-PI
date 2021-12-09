@@ -28,9 +28,6 @@ export function postPokemon(payload) {
     }
 }  
 
-
-
-
 // ORDENA POR ORDEN ALFABETICO
 export function orderByName(payload) {
     return {
@@ -72,9 +69,22 @@ export function getNamePokemons(name){
 
 //OBTENER DETALLES
 export function getDetail(id) {
-    return async function(dispatch) {
+    
+
+        //POR PROMISE
+        // return function(dispatch) {
+        // axios.get("http://localhost:3001/pokemons/"+id)
+        // .then(res =>{
+        //     dispatch({
+        //         type: 'GET_DETAILS',
+        //       payload: res.data
+        //     })
+        // })
+
+        //POR ASYNC/ AWAIT
+        return async function(dispatch) {
         try {
-            var json = await axios.get("http://localhost:3001/pokemons/"+id);
+            let json = await axios.get("http://localhost:3001/pokemons/"+id);
             return dispatch({
                 type: 'GET_DETAILS',
                 payload: json.data
@@ -84,13 +94,6 @@ export function getDetail(id) {
         }
     }
 }
-
-// export const filterType = (type) => {
-//     return async (dispatch) =>
-//         dispatch({ 
-//             type: 'FILTER_BY_TYPE', 
-//             payload: type })
-// };
 
 export function filterType(payload) {
     return {

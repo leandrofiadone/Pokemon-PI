@@ -67,7 +67,7 @@ export default function PokemonCreated(){
 
             <Link to="/home"><button className={styles.buttonform}>Volver</button></Link>
 
-            <h1 className={styles.create_title}>Crea tu personaje</h1>
+            <h1 className={styles.create_title}>Detailed your pokemon</h1>
 
                 <form className={styles.form_container} onSubmit={(e)=>handleSubmit(e)}>
 
