@@ -3,12 +3,16 @@ import {Link} from 'react-router-dom';
 import {postPokemon, getTypes} from '../actions/index'
 import { useDispatch ,useSelector } from "react-redux";
 import styles from "./CreatePokemon.module.css";
+import validaciones from '../components/CreatePokemonErrors'
+
+
 
 
 export default function PokemonCreated(){
 
     const dispatch = useDispatch()
     const types = useSelector((state) => state.types)
+    const [errors, setErrors] = useState({});
 
     useEffect(() => {
         dispatch(getTypes())
@@ -32,6 +36,7 @@ export default function PokemonCreated(){
             ...input,
             [e.target.name] : e.target.value
         })
+        setErrors(validaciones({ ...input, [e.target.name]: e.target.value }));
     }
 
     function handleSelect(e){     
@@ -80,7 +85,8 @@ export default function PokemonCreated(){
                             name= "nombre"
                             onChange={handleChange}/>
                             </div>
-
+                            {errors.nombre && (<p className={styles.errorinput}> {errors.nombre}</p>)}
+                            
                             <div className={styles.labelInput_cnt}>
                             <label>Vida:</label>
                             <input
@@ -89,6 +95,9 @@ export default function PokemonCreated(){
                             name= "vida"
                             onChange={handleChange}/>
                             </div> 
+                            {errors.vida && (<p className='error-input'>{errors.vida}</p>)}
+                            
+                        
 
                             <div className={styles.labelInput_cnt}>
                             <label>Ataque: </label>
@@ -97,7 +106,8 @@ export default function PokemonCreated(){
                             value= {input.fuerza}
                             name= "fuerza"
                             onChange={handleChange}/>
-                            </div>            
+                            </div>        
+                            {errors.fuerza && (<p className='error-input'>{errors.fuerza}</p>)}    
                             
                             <div className={styles.labelInput_cnt}>
                             <label>Defensa: </label>
@@ -107,6 +117,7 @@ export default function PokemonCreated(){
                             name= "defensa"
                             onChange={handleChange}/>
                             </div>
+                            {errors.defensa && (<p className='error-input'>{errors.defensa}</p>)}
 
                             <div className={styles.labelInput_cnt}>
                             <label>Speed: </label>
@@ -116,6 +127,7 @@ export default function PokemonCreated(){
                             name= "velocidad"
                             onChange={handleChange}/>
                             </div>
+                            {errors.velocidad && (<p className='error-input'>{errors.velocidad}</p>)}
 
                             <div className={styles.labelInput_cnt}>
                             <label>Height: </label>
@@ -125,6 +137,7 @@ export default function PokemonCreated(){
                             name= "altura"
                             onChange={handleChange}/>
                             </div>
+                            {errors.altura && (<p className='error-input'>{errors.altura}</p>)}
 
                             <div className={styles.labelInput_cnt}>
                             <label>Peso: </label>
@@ -134,6 +147,7 @@ export default function PokemonCreated(){
                             name= "peso"
                             onChange={handleChange}/>
                             </div>
+                            {errors.peso && (<p className='error-input'>{errors.peso}</p>)}
 
                             <div className={styles.labelInput_cnt}>
                             <label>Imagen: </label>

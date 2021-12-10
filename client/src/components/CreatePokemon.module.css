@@ -166,3 +166,11 @@
    buttonform:active {
     transform: translateY(-1px);
    }
+
+
+   .errorinput{
+    color: red;
+    font-size: 19px;
+    margin-top: -10px;
+    margin-bottom: 11px;
+}
