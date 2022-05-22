@@ -1,0 +1,23 @@
+       POR PROMISE
+        return function(dispatch) {
+        axios.get("http://localhost:3001/pokemons/"+id)
+        .then(res =>{
+            dispatch({
+                type: 'GET_DETAILS',
+              payload: res.data
+            })
+        })
+
+
+
+- hacer un ordenamiento extra
+- thunk middleware
+- lo mejor es q la lógica esté en el reducer y no en las actions (para Dani estas 3)
+- cambiar el form para cuando seleccionas un pais de nuevo lo saque del array
+- pasar async/await a promesas
+- cambiar ruta del detail para q reciba query y no params
+- cambiar el paginado
+-validaciones del form
+- pasar a fetch
+- mostrar wl flujo desde el back al front
+- cambiar la ruta, en vez de traer por params q sea por query

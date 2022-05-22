@@ -1,0 +1,4 @@
+que los pokemones se filtren por tipo
+me falta todo el 
+create pokemon
+y obtener el tipo en el detail
