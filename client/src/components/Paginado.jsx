@@ -3,6 +3,8 @@ import styles from './Paginado.module.css'
 export default function Paginado ({pokemonPerPage, tuttiPokemons, paginado}){
     const pageNumbers = [];
 
+  
+
     for (let i=1; i<= Math.ceil(tuttiPokemons/pokemonPerPage); i++){
         pageNumbers.push(i)
     }
@@ -10,7 +12,7 @@ export default function Paginado ({pokemonPerPage, tuttiPokemons, paginado}){
     return(
         <nav>
             <ul className= {styles.pagination}>
-                { pageNumbers &&
+                { pageNumbers  &&
                     pageNumbers.map(number =>(
                     
                     <li className= {styles.number} key={number}>
@@ -22,3 +24,5 @@ export default function Paginado ({pokemonPerPage, tuttiPokemons, paginado}){
         </nav>
     )
 }
+
+//COMO HACER QUE EL PAGINADO MUESTRE SOLO UNA PAGINA

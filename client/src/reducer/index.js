@@ -3,22 +3,33 @@ const initialState = {
     allPokemons: [],
     types: [],
     detail: [],
-
+    
 }
 
 function rootReducer (state = initialState, action){
-
+    
     switch(action.type){
         
         case 'GET_POKEMONS': //TRAER TODOS LOS POKEMONES
-                return{
-                    ...state, 
-                    pokemones: action.payload,
-                    allPokemons: action.payload,
-                    detail: []
-                    }
+        return{
+            ...state, 
+            pokemones: action.payload,
+            allPokemons: action.payload,
+            detail: []
+        }
         
-                    
+        case 'GET_NAME_POKEMONS':
+            return{
+                ...state,
+                pokemones: action.payload
+            }
+            
+        case 'GET_DETAILS':
+            return {
+            ...state,
+            detail: action.payload
+            }
+            
         case "GET_TYPES": //TRAE TODOS LOS TIPOS
                 return {
                     ...state,
@@ -86,17 +97,7 @@ function rootReducer (state = initialState, action){
                 pokemons: sortedAttack
             }
 
-        case 'GET_NAME_POKEMONS':
-            return{
-                ...state,
-                pokemones: action.payload
-            }
 
-        case 'GET_DETAILS':
-            return {
-            ...state,
-            detail: action.payload
-            }
         
         case 'FILTER_BY_TYPE':
 
@@ -111,6 +112,9 @@ function rootReducer (state = initialState, action){
                 pokemones: estadoFiltrado,
             } 
           
+
+
+
     default: return state;   
     
 } 

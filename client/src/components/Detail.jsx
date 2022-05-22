@@ -21,7 +21,7 @@ export default function Detail() {
 
 
     const myPokemon = useSelector((state) => state.detail)
-
+    console.log(myPokemon, "PROBANDING");
     return (
         <div>
            
