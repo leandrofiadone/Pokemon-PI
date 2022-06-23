@@ -26,7 +26,7 @@ export default function SearchBar(){
 
     return(
         
-            <form onSubmit={e => handleSubmit(e)}>
+            <form >
         <input className={styles.searchinput} type='text' placeholder='Pokemon´s name...'
         onChange={e => handleInputChange(e)}></input>
         <button className={styles.searchbtn} type='button' onClick={e => handleSubmit(e)}>Search</button>

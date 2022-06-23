@@ -4,8 +4,8 @@ import styled from 'styled-components';
 
 export default function Card({ name, sprite, id, types }) {
 
-  function colorPicker(tipoPrincipal) {
-		switch (tipoPrincipal) {
+  function colorPicker(mainType) {
+		switch (mainType) {
 			case 'grass':
 				return 'rgb(16, 150, 23, 0.5)';
 				
@@ -105,6 +105,7 @@ export default function Card({ name, sprite, id, types }) {
                                 return(
                                   <div>
                                     <span>{e}</span>
+
                                   </div>
                                       )
                                     })}

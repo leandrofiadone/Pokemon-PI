@@ -72,6 +72,8 @@ const getPokedb = async () => {
 
 // 3 UNION DE TODOS LOS POKEMONES DE API Y BASE DE DATOS
 //me permite unir el array que me devuelve la pokeapi (40) pokemons + los pokemons creados en la DB pokemons
+
+
 const getAllPoke = async () => {
     try {
         const apiPokeData = await getPokeapi();

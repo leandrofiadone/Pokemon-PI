@@ -10,8 +10,7 @@ const addTypeDb = async () => {
 
         resType.map(e => {
             Type.create({
-                nombre: e.name,
-               
+                nombre: e.name
             })
             /* console.log({name: e.name}) */
         })
