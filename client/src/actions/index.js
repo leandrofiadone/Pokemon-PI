@@ -3,7 +3,7 @@ import axios from 'axios';
 // UNION ENTRE BACK Y FRONT TRAE LOS POKEMONES DE LA API
 export function getPokemons(){
     return async function(dispatch){
-        const pokeDex = await axios.get("http://localhost:3001/pokemons");
+        const pokeDex = await axios.get("/pokemons");
         //TRAE TODOS LOS POKEMONES AL HOME CON SUS TIPOS E IMAGENES
         return dispatch({
             type: 'GET_POKEMONS',
@@ -14,7 +14,7 @@ export function getPokemons(){
 //TRAE TODOS LOS TIPOS DE POKEMONES
 export function getTypes() {
     return async function (dispatch) {
-      const info = await axios.get('http://localhost:3001/types');
+      const info = await axios.get('/types');
         return dispatch({ type: "GET_TYPES",  payload: info.data });
     };
 }
@@ -22,7 +22,7 @@ export function getTypes() {
 //CREACION DE NUEVO POKEMON
 export function postPokemon(payload) {
     return async function(dispatch){
-        const responseCreated = await axios.post("http://localhost:3001/pokemons",payload)
+        const responseCreated = await axios.post("/pokemons",payload)
         console.log(responseCreated)
         return responseCreated;
     }
@@ -56,7 +56,7 @@ export function orderByAttack(payload) {
 export function getNamePokemons(name){
     return async function (dispatch){
         try{
-            let json = await axios.get("http://localhost:3001/pokemons/pokemon/" + name);
+            let json = await axios.get("/pokemons/pokemon/" + name);
                 return dispatch({
                     type: "GET_NAME_POKEMONS",
                     payload: json.data
@@ -84,7 +84,7 @@ export function getDetail(id) {
         //POR ASYNC/ AWAIT
         return async function(dispatch) {
         try {
-            let json = await axios.get("http://localhost:3001/pokemons/"+id);
+            let json = await axios.get("/pokemons/"+id);
             return dispatch({
                 type: 'GET_DETAILS',
                 payload: json.data
