@@ -11,6 +11,12 @@ const {
 //   logging: false, // set to console.log to see the raw SQL queries
 //   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
 // });
+if (process.env.NODE_ENV !== 'production') {
+  console.log('Happy developing');
+}
+if (process.env.NODE_ENV === 'production') {
+  console.log('Happy production');
+}
 
 let sequelize =
   process.env.NODE_ENV === "production"
