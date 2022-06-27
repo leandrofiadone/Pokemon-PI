@@ -6,10 +6,13 @@ const {API_POKEMON_TYPE} = require('../utils/Globales');
 const addTypeDb = async () => {
     try {
         const allTypes = await Type.findAll()
+        console.log(allTypes, "Todos los tipos")
         if (allTypes.length > 0) {
+            console.log("entro al if")
             return null
         }
-        const reqType = await axios.get(API_POKEMON_TYPE) //llamado a la api
+        const reqType = await axios.get(API_POKEMON_TYPE)
+        console.log("Request de tipos") //llamado a la api
         const resType = reqType.data.results
         console.log(resType, "Tipos")
         resType.map(e => {
