@@ -5,15 +5,20 @@ const {API_POKEMON_TYPE} = require('../utils/Globales');
 // 1 - ADHIERE LOS TYPES A LA BASE DE DATOS CUANDO EL SERVIDOR ESTA ANDANDO
 const addTypeDb = async () => {
     try {
+        const allTypes = await Type.findAll()
+        if (allTypes.length > 0) {
+            return null
+        }
         const reqType = await axios.get(API_POKEMON_TYPE) //llamado a la api
         const resType = reqType.data.results
-
+        console.log(resType, "Tipos")
         resType.map(e => {
             Type.create({
                 nombre: e.name
             })
             /* console.log({name: e.name}) */
         })
+
     } catch (err) {
         console.log(err)
     }
