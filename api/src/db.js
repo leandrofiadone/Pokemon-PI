@@ -17,16 +17,19 @@ if (process.env.NODE_ENV !== 'production') {
 if (process.env.NODE_ENV === 'production') {
   console.log('Happy production');
 }
+if (DB_NAME && DB_HOST && DB_USER && DB_PASSWORD) {
+  console.log('DB TODAS LAS VARIABLES');
+}
 
 let sequelize =
   process.env.NODE_ENV === "production"
-    ? new Sequelize(DATABASE_URL,{
-        // database: DB_NAME,
-        // dialect: "postgres",
-        // host: DB_HOST,
-        // port: 5432,
-        // username: DB_USER,
-        // password: DB_PASSWORD,
+    ? new Sequelize({
+        database: DB_NAME,
+        dialect: "postgres",
+        host: DB_HOST,
+        port: 5432,
+        username: DB_USER,
+        password: DB_PASSWORD,
         pool: {
           max: 3,
           min: 1,
