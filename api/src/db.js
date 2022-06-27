@@ -3,7 +3,7 @@ const { Sequelize } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
 const {
-  DB_USER, DB_PASSWORD, DB_HOST, DB_NAME
+  DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, DATABASE_URL
 } = process.env;
 
 
@@ -49,6 +49,20 @@ let sequelize =
         `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`,
         { logging: false, native: false }
       );
+
+// URL_POSTGRESS = DATABASE_URL || `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`
+
+// const sequelize = new Sequelize(URL_POSTGRESS, {
+//   logging: false, 
+//   native: false, 
+//   dialectOptions: {
+//     ssl: {
+//         require: true,
+//         rejectUnauthorized: false
+//     }
+//  },
+// });
+
 const basename = path.basename(__filename);
 
 const modelDefiners = [];
@@ -69,7 +83,9 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
+console.log(sequelize.models, "Sequelize 1")
 const { Pokemon, Type } = sequelize.models;
+console.log(sequelize.models, "Sequelize rompe");
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
