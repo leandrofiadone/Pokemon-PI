@@ -1,44 +1,39 @@
-# Pokémon PI
+# Pokémon Explorer
 
-![Pokémon Logo](insert_pokemon_logo_url_here)
+## About
+Pokémon Explorer is one of my first full-stack projects, combining my love for Pokémon with web development. It allows users to explore, search, and create Pokémon.
 
-## About This Project
+## Deployment Note
+This project was initially deployed on Heroku's free tier, serving as an excellent learning platform for deployment processes. However, due to changes in Heroku's pricing model, we've had to adapt our deployment strategy. This experience has been invaluable in understanding the challenges of maintaining live applications and the importance of flexible hosting solutions.
 
-Welcome to Pokémon PI, one of my very first coding projects! This repository marks the beginning of my journey into the world of software development, combining my passion for Pokémon with my budding programming skills.
+## Features
+- Browse and search Pokémon
+- View detailed Pokémon information
+- Create custom Pokémon
 
-## Project Overview
+## Tech Stack
+- Frontend: React.js
+- Backend: Node.js with Express
+- Database: PostgreSQL
 
-Pokémon PI is a [brief description of what your project does, e.g., "a web application that allows users to explore and learn about different Pokémon"]. As one of my initial forays into coding, this project represents both my learning process and my enthusiasm for creating something fun and interactive.
+## Learning Highlights
+- Full-stack integration
+- API interaction
+- Database management
+- Deployment processes
 
-### Features
+## Future Plans
+- User authentication
+- Battle simulation
+- Enhanced custom Pokémon creation
 
-- [List key features of your project]
-- [For example: "Search for Pokémon by name or type"]
-- [Another example: "View detailed information about each Pokémon"]
+## Contribute
+Contributions are welcome! Feel free to fork, submit PRs, or suggest new ideas.
 
-## Technologies Used
+## Contact
+Questions or want to chat about Pokémon or web dev? Reach out anytime!
 
-- [List the main technologies, languages, or frameworks you used]
-- [For example: HTML, CSS, JavaScript, React, etc.]
-
-## What I Learned
-
-Creating this project taught me invaluable lessons about:
-
-- [List some key learnings, e.g., "Working with APIs"]
-- [Another example: "State management in React"]
-- [You could also mention: "The importance of project planning and organization"]
-
-## Installation and Setup
-
-[Provide instructions on how to install and run your project locally]
-
-```bash
-# Example installation steps
-git clone https://github.com/leandrofiadone/Pokemon-PI.git
-cd Pokemon-PI
-npm install
-npm start
+Happy exploring, trainers!
 
 
 #### Testing
